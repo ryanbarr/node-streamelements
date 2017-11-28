@@ -1,0 +1,22 @@
+{
+  "name": "node-streamelements",
+  "version": "0.0.0",
+  "description": "An unofficial wrapper for the StreamElements API.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryanbarr/node-streamelements.git"
+  },
+  "keywords": [
+    "streamelements"
+  ],
+  "author": "Ryan Barr <ryanbarr@gmail.com> (http://spooky.gg)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ryanbarr/node-streamelements/issues"
+  },
+  "homepage": "https://github.com/ryanbarr/node-streamelements#readme"
+}
