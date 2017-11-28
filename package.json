@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/ryanbarr/node-streamelements/issues"
   },
-  "homepage": "https://github.com/ryanbarr/node-streamelements#readme"
+  "homepage": "https://github.com/ryanbarr/node-streamelements#readme",
+  "dependencies": {
+    "request": "^2.83.0"
+  }
 }
