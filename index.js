@@ -257,7 +257,7 @@ class StreamElements {
     return this.makeRequest(HTTP.GET, `loyalty/${channel}`);
   }
   updateLoyaltySettings(options, channel = this.accountId) {
-    return this.makeRequest(HTTP.PUT, `loyalty/${channel}`);
+    return this.makeRequest(HTTP.PUT, `loyalty/${channel}`, options);
   }
 
   // /overlays
