@@ -4,10 +4,10 @@ const HTTP = { GET: 'GET', POST: 'POST', PUT: 'PUT', DELETE: 'DELETE' };
 class StreamElements {
 
   constructor(options) {
-    
+
     // Establish the base URL for the API.
     this.base = options.base || 'https://api.streamelements.com/kappa/v2';
-    
+
     // Store the user's access token in the instance.
     this.jwt = options.token;
 
@@ -43,8 +43,8 @@ class StreamElements {
           return reject(responseBody.error);
         }
 
-        // If we receive a status code other than 200 OK, reject the Promise.
-        if (response.statusCode !== 200) {
+        // If we receive a status code other than 2XX range, reject the Promise.
+        if (response.statusCode < 200 || response.statusCode > 299) {
           return reject(`Error encountered during request to StreamElements. Status Code: ${response.statusCode}`);
         }
 
