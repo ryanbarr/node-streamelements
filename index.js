@@ -4,10 +4,10 @@ const HTTP = { GET: 'GET', POST: 'POST', PUT: 'PUT', DELETE: 'DELETE' };
 class StreamElements {
 
   constructor(options) {
-    
+
     // Establish the base URL for the API.
     this.base = options.base || 'https://api.streamelements.com/kappa/v2';
-    
+
     // Store the user's access token in the instance.
     this.jwt = options.token;
 
@@ -17,7 +17,7 @@ class StreamElements {
   }
 
   // Create a generic request wrapper.
-  makeRequest(method, path, body, qs) {
+  makeRequest(method, path, body, qs, allowableStatusCode = 200) {
 
     // Return a promise to allow developers to appropriately handle API responses.
     return new Promise((resolve, reject) => {
@@ -44,7 +44,7 @@ class StreamElements {
         }
 
         // If we receive a status code other than 200 OK, reject the Promise.
-        if (response.statusCode !== 200) {
+        if (response.statusCode !== allowableStatusCode) {
           return reject(`Error encountered during request to StreamElements. Status Code: ${response.statusCode}`);
         }
 
@@ -359,7 +359,8 @@ class StreamElements {
     if (isNaN(volume) || volume < 0 || volume > 100) {
       throw new Error('volumeAmount should be a number between 0 and 100.');
     }
-    return this.makeRequest(HTTP.POST, `songrequest/${channel}/player/volume`, { volume });
+    // this request returns a 201 response
+    return this.makeRequest(HTTP.POST, `songrequest/${channel}/player/volume`, { volume }, null, 201);
   }
 
   // /speech
