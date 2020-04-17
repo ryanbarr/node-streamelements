@@ -354,6 +354,13 @@ class StreamElements {
   getCurrentSong(channel = this.accountId) {
     return this.makeRequest(HTTP.GET, `songrequest/${channel}/playing`);
   }
+  setSongRequestVolume(volumeAmount, channel = this.accountId) {
+    const volume = parseInt(volumeAmount, 10);
+    if (isNaN(volume) || volume < 0 || volume > 100) {
+      throw new Error('volumeAmount should be a number between 0 and 100.');
+    }
+    return this.makeRequest(HTTP.POST, `songrequest/${channel}/player/volume`, { volume });
+  }
 
   // /speech
   generateSpeech(text, voice = 'Joanna') {
