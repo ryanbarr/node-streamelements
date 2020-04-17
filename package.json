@@ -1,6 +1,6 @@
 {
   "name": "node-streamelements",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "An unofficial wrapper for the StreamElements API.",
   "main": "index.js",
   "scripts": {
